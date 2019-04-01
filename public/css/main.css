@@ -54,6 +54,17 @@ body {
 
 .statistics > ol {
 	margin-left: -1.25rem;
+	padding-bottom: 60px;
+}
+
+.btn-primary {
+	background-color: #60888b;
+	border-color: #60888b;
+}
+
+.btn-secondary {
+	background-color: #6600cc;
+	border-color: #6600cc;
 }
 
 #footer {
