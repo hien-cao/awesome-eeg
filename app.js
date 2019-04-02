@@ -33,19 +33,19 @@ app.use('/flappy', flappyRouter);
 app.use('/results', scoreRouter);
 
 // connect database
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
 	host: 'eu-cdbr-west-02.cleardb.net',
 	user: 'bf157af0edf581',
 	password: '8a4712dd',
 	database: 'heroku_e07636468caf80f'
 });
 
-connection.connect((err) => {
+/* connection.connect((err) => {
 	if (err) {
 		throw err;
 	}
 	console.log('Connected to database');
-});
+}); */
 global.connection = connection;
 
 // catch 404 and forward to error handler
