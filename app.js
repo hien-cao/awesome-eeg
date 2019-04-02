@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 var compression = require('compression');
 var helmet = require('helmet');
 var mysql = require('mysql');
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(helmet());
 app.use(compression()); // compress all routes
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,18 +33,20 @@ app.use('/flappy', flappyRouter);
 app.use('/results', scoreRouter);
 
 // connect database
-/* var connection = mysql.createConnection({
+var connection = mysql.createConnection({
 	host: 'eu-cdbr-west-02.cleardb.net',
 	user: 'bf157af0edf581',
 	password: '8a4712dd',
 	database: 'heroku_e07636468caf80f'
-}); */
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'Dh771989',
-	database: 'awesomeapp'
 });
+
+connection.connect((err) => {
+	if (err) {
+		throw err;
+	}
+	console.log('Connected to database');
+});
+global.connection = connection;
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

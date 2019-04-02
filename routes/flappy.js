@@ -3,8 +3,14 @@ const router = express.Router();
 
 // game route
 router.get('/', (req, res) => {
-	data = [ { name: 'Hien', scores: 5 }, { name: 'Vilis', scores: 10 }, { name: 'Niko', scores: 8 } ];
-	res.render('pages/flappy', { data: data });
+	connection.query(
+		'SELECT username, score FROM users ORDER BY score DESC LIMIT 10',
+		[ req.body.email ],
+		(error, results) => {
+			if (error) throw error;
+			res.render('pages/flappy', { data: results });
+		}
+	);
 });
 
 module.exports = router;

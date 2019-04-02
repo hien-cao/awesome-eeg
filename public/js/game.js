@@ -44,7 +44,7 @@ let newGameCheck = true; // use to check if the game has started
 // press the key board
 document.addEventListener('keydown', (e) => {
 	if (e.keyCode == 65 || e.keyCode == 32 || e.keyCode == 38) {
-		if (!paused) {
+		if (!paused && !gameOver && !newGame) {
 			bY -= velocity;
 			fly.play();
 		}
