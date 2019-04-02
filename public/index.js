@@ -2,7 +2,7 @@ import { ImageService } from './js/image.service';
 import { SoundService } from './js/sound.service';
 import { ComponentService } from './js/component.service';
 import { run } from './js/app';
-import './css/main.css';
+import './css/main.scss';
 
 if (window.location.pathname == '/flappy') {
 	const componentService = new ComponentService();

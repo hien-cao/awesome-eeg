@@ -1,17 +1,16 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodeExternals = require('webpack-node-externals');
 
 module.exports = {
-	mode: 'development',
-	entry: './public/index.js',
-	output: {
-		filename: 'bundle.[contentHash].js',
-		path: path.resolve(__dirname, 'dist')
+	entry: {
+		main: './public/index.js',
+		vendor: './public/vendor.js'
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: '!!raw-loader!views/pages/index.ejs',
 			filename: 'index.ejs',
+			excludeChunks: [ 'app' ],
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
@@ -24,15 +23,28 @@ module.exports = {
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
-				conservativeCollapse: true
+				conservativeCollapse: true,
+				removeAttributeQuotes: true
 			}
 		})
 	],
+	target: 'node',
+	externals: [ NodeExternals() ],
 	module: {
 		rules: [
 			{
-				test: /\.css$/,
-				use: [ 'style-loader', 'css-loader' ]
+				test: /\.ejs$/,
+				loader: 'ejs-html-loader'
+			},
+			{
+				test: /\.(svg|png|jpg|gif)$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '[name].[hash].[ext]',
+						outputPath: 'imgs'
+					}
+				}
 			}
 		]
 	}

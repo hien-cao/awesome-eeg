@@ -41,20 +41,4 @@ app.use(function(err, req, res, next) {
 	res.render('error');
 });
 
-// home route
-app.get('/', (req, res) => {
-	res.render('pages/index');
-});
-
-// game route
-app.get('/flappy', (req, res) => {
-	data = [ { name: 'Hien', scores: 5 }, { name: 'Vilis', scores: 10 }, { name: 'Niko', scores: 8 } ];
-	res.render('pages/flappy', { data: data });
-});
-
-/* update result */
-app.post('/results', (req, res) => {
-	res.redirect('/flappy');
-});
-
 module.exports = app;

@@ -1,39 +1,33 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = {
+const common = require('./webpack.common');
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+module.exports = merge(common, {
 	mode: 'production',
-	entry: './public/index.js',
 	output: {
-		filename: 'bundle.[contentHash].js',
+		filename: '[name].[contentHash].bundle.js',
 		path: path.resolve(__dirname, 'dist')
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: '!!raw-loader!views/pages/index.ejs',
-			filename: 'index.ejs',
-			minify: {
-				removeComments: true,
-				collapseWhitespace: true,
-				conservativeCollapse: true
-			}
-		}),
-		new HtmlWebpackPlugin({
-			template: '!!raw-loader!views/pages/flappy.ejs',
-			filename: 'flappy.ejs',
-			minify: {
-				removeComments: true,
-				collapseWhitespace: true,
-				conservativeCollapse: true
-			}
-		})
-	],
+	plugins: [ new MiniCssExtractPlugin({ filename: '[name].[contentHash].css' }) ],
+	optimization: {
+		minimizer: [ new OptimizeCssAssetsPlugin(), new TerserPlugin() ]
+	},
 	module: {
 		rules: [
 			{
-				test: /\.css$/,
-				use: [ 'style-loader', 'css-loader' ]
+				// Transpiles ES6-8 into ES5
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader'
+				}
+			},
+			{
+				test: /\.scss$/,
+				use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
 			}
 		]
 	}
-};
+});
