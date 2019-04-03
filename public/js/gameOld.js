@@ -26,7 +26,7 @@ fly.src = 'sounds/fly.mp3';
 scor.src = 'sounds/score.mp3';
 
 // some varaibles
-const gap = 85;
+const gap = 150;
 let constant;
 // pipe coordinates
 let pipes = [];
