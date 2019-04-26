@@ -12,13 +12,17 @@
 * jumbotron							: #ffb366;
 */
 
+* {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
 body {
 	background-color: #f5f5f5;
 	min-width: 1000px;
 }
 
 .navbar {
-	background-color: #4b6a6d;
+	background-color: #4fa49a;
 }
 
 #logo {
@@ -43,13 +47,35 @@ body {
 }
 
 .jumbotron {
-	margin-top: 5%;
-	background-color: #f8ecf8;
-	/* background-color: #ffebcc; */
+	/* margin-top: 5%; */
+	background-color: #4686a0;
+	background-image: linear-gradient(45deg, #4fa49a, #4361c2);
+	color: #ffffff;
+	border-radius: 0px;
+	text-align: center;
 }
 
-.content a {
-	align-self: left;
+.jumbotron h1 {
+	font-family: 'Inconsolata', monospace;
+}
+
+#discover_btn {
+	margin-top: 2rem;
+	border: #ffffff solid 1px;
+	background: none;
+}
+
+#discover_btn:hover {
+	border: #ffffff solid 1px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.header_icon {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2rem;
+	width: 8%;
 }
 
 .statistics > ol {
@@ -67,13 +93,109 @@ body {
 	border-color: #6600cc;
 }
 
-#footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 60px; /* Set the fixed height of the footer here */
-	line-height: 60px; /* Vertically center the text there */
-	background-color: #60888b;
-	color: #415c5e;
+header.major {
+	margin: 0 0 1em 0;
+}
+
+header.major:after {
+	background: rgba(144, 144, 144, 0.5);
+	content: '';
+	display: inline-block;
+	height: 1px;
+	margin-top: 1.5em;
+	width: 6em;
+}
+
+#one {
+	padding: 3rem 0;
+}
+
+#two {
+	padding: 3rem 0;
+}
+
+#two header {
 	text-align: center;
+}
+
+#flappy_btn {
+	background-color: #4fa49a;
+}
+
+#flappy_btn:hover {
+	background-color: #4bccbc;
+	border: none;
+}
+
+/* Image */
+.image {
+	border-radius: 4px;
+	border: 0;
+	display: inline-block;
+	position: relative;
+}
+
+.image img {
+	border-radius: 4px;
+	display: block;
+}
+
+.image.fit {
+	display: block;
+	margin: 0 0 2em 0;
+	width: 100%;
+}
+
+.image.fit img {
+	width: 100%;
+}
+
+/* Footer */
+
+#footer {
+	padding: 3em 0 3em 0;
+	background-color: #4686a0;
+	color: rgba(255, 255, 255, 0.75);
+	background-attachment: fixed, fixed, fixed;
+	background-image: linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
+	background-position: top left, center center, center center;
+	background-size: auto, cover, cover;
+	text-align: center;
+}
+
+#footer a {
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.75);
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: #ffffff;
+}
+
+#footer .icons {
+	font-size: 1.8rem;
+	display: inline;
+	margin: 0;
+}
+
+#footer .icons ul {
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+}
+
+#footer li {
+	display: inline-block;
+	padding: 0 1.25em 0 0;
+}
+
+#footer .icon > .label {
+	display: none;
+}
+
+#footer .copyright {
+	font-size: 1em;
+	margin: 2em 0 0 0;
+	padding: 0;
 }

@@ -4,20 +4,48 @@
   <% include ../partials/head %>
 <body>
   <!-- Nav -->
-  <% include ../partials/nav %>
   <!-- Main -->
-  <main class="container">
+  <main>
     <div class="jumbotron">
+      <img class="header_icon" src="/images/brain.svg" alt="brain image">
       <h1 class="display-4">AWESOME EEG</h1>
       <p class="lead">Would you like to exprience a new way to play game? Our product can help you to get that.</p>
-      <hr class="my-4">
-      <p>Our aim is to create one of the most affordable brainwave-reading eeg headset on the market. In order to test the product, please click on the below button.</p>
-      <a class="btn btn-primary btn-sm" href="/flappy" role="button">Play the game</a>
+      <a id="discover_btn" class="btn btn-primary btn-sm" href="#" role="button">DISCOVER</a>
     </div>
-    <div class="content">
-      <h4>ABOUT US</h4>
-      <p>We are an awesome team!</p>
-      <a class="btn btn-primary btn-sm float-right" href="/" role="button">Contact Us</a>
+    <div class="container">
+      <!-- Section 1 -->
+      <section id="one" class="main style1">
+        <div class="row gtr-150">
+          <div class="col-6 col-12-medium">
+            <header class="major">
+              <h2>Our Technology</h2>
+            </header>
+            <p>Our aim is to create one of the most affordable brainwave-reading eeg headset on the market</p>
+          </div>
+          <div class="col-6 col-12-medium imp-medium">
+            <span class="image fit"><img src="images/brain_wave.jpg" alt="brain wave"></span>
+          </div>
+        </div>
+      </section>
+      <!-- Section 2 -->
+      <section id="two" class="main style1 special">
+        <div class="container">
+          <header class="major center">
+            <h2>GAMES</h2>
+          </header>
+          <p class="text-center">Enjoy our product with the games</p>
+          <div class="row gtr-150">
+            <div class="col-4 col-12-medium"></div>
+            <div class="col-4 col-12-medium">
+              <span class="image fit"><img src="images/flappy_bird.jpg" alt="flappy bird" /></span>
+              <h3>Flappy Bird</h3>
+              <p>This is the clone version of Flappy Bird developed by Vietnamese development company dotGears. The game is a side-scroller where the player controls a bird by blinking the eyes, attempting to fly between columns of green pipes without hitting them.</p>
+              <a id="flappy_btn" class="btn btn-primary btn-sm" href="/flappy" role="button">Play!</a>
+            </div>
+            <div class="col-4 col-12-medium"></div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
   <!-- Footer -->
