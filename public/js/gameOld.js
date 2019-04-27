@@ -69,9 +69,13 @@ function showModal() {
 	modal.modal('show');
 	document.getElementById('score').value = score;
 	if (score < 2) {
-		document.getElementById('label').innerText = `Your score is ${score}\nDo you want to save the score?`;
+		document.getElementById(
+			'label'
+		).innerText = `Your score is ${score}\nDON'T want to save the score PRESS "Play Again!"`;
 	} else {
-		document.getElementById('label').innerText = `Your scores are ${score}\nDo you want to save the scores?`;
+		document.getElementById(
+			'label'
+		).innerText = `Your scores are ${score}\nDON'T want to save the score PRESS "Play Again!"`;
 	}
 }
 

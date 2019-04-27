@@ -24,10 +24,11 @@ body {
 
 .navbar {
 	background-color: #4fa49a;
+	background-image: linear-gradient(45deg, #4fa49a, #4361c2);
 }
 
 #logo {
-	width: 60px;
+	width: 30px;
 }
 
 #canvas-container {
@@ -44,7 +45,7 @@ body {
 }
 
 .breadcrumb > .breadcrumb-item a {
-	color: #6600cc;
+	color: #4fa49a;
 }
 
 .jumbotron {
@@ -79,6 +80,10 @@ body {
 	width: 8%;
 }
 
+.statistics {
+	padding: 3rem 0;
+}
+
 .statistics > ol {
 	margin-left: -1.25rem;
 	padding-bottom: 60px;
@@ -87,11 +92,6 @@ body {
 .btn-primary {
 	background-color: #60888b;
 	border-color: #60888b;
-}
-
-.btn-secondary {
-	background-color: #6600cc;
-	border-color: #6600cc;
 }
 
 header.major {
@@ -112,10 +112,27 @@ header.major:after {
 }
 
 #two {
+	background-color: #f0f0f0;
+	padding: 2rem 0 1rem 0;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+#two p {
+	font-family: 'Josefin Sans';
+	font-size: 1.5rem;
+	font-style: italic;
+}
+
+#three {
 	padding: 3rem 0;
 }
 
-#two header {
+#four {
+	padding: 3rem 0;
+}
+
+#four header {
 	text-align: center;
 }
 

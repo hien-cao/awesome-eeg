@@ -4,7 +4,7 @@ const router = express.Router();
 // game route
 router.get('/', (req, res) => {
 	connection.query(
-		'SELECT username, score FROM users ORDER BY score DESC LIMIT 10',
+		'SELECT username, score FROM users ORDER BY score DESC LIMIT 5',
 		[ req.body.email ],
 		(error, results) => {
 			if (error) throw error;

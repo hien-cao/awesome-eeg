@@ -22,13 +22,13 @@
           <form action="/results" method="POST">
             <div class="modal-body">
               <div class="form-group">
-                <h4 class="modal-title text-center">Game Over</h4>
+                <h4 class="modal-title text-center text-warning"><i class="fas fa-trophy"></i> Congratulation!</h4>
                 <label id="label" for="name"></label>
                 <input id="name" class="form-control" type="text" name="name" placeholder="Enter your name" required>
                 <input id="score" type="hidden" name="score" class="form-control">
               </div>
-              <button id="playAgain" type="button" class="btn btn-secondary" data-dismiss="modal">Play Again!</button>
-              <button type="submit" class="btn btn-primary">Save the score!</button>
+              <button type="submit" class="btn btn-success">Save the score!</button>
+              <button id="playAgain" type="button" class="btn btn-info" data-dismiss="modal">Play Again!</button>
             </div>
           </form>
         </div>
@@ -39,12 +39,34 @@
       <canvas id="canvas" width="800" height="480"></canvas>
     </div>
     <div class="statistics">
-      <h5 class="text-muted">LEADER BOARD</h5>
-      <ol>
-        <% for(let key in data) { %>
-          <li ><%=data[key].username%> - <%=data[key].score%></li>
-        <% } %>
-      </ol>
+      <h4 class="text-muted">LEADER BOARD</h4>
+      <table class="table table-md table-hover table-borderless table-striped">
+        <thead>
+          <tr class="table-info">
+            <th scope="col">#</th>
+            <th scope="col">Player</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let key in data) { %>
+          <tr>
+            <% const index = parseInt(key) + 1;%>
+            <% if(index == 1) { %>
+              <th style="width:3%" class="bg-warning" scope="row"><%=parseInt(key) + 1%></th>
+            <% } else if (index == 2) { %>
+              <th style="width:3%" class="bg-success" scope="row"><%=parseInt(key) + 1%></th>
+            <% } else if (index == 3) { %>
+            <th style="width:3%" class="bg-primary" scope="row"><%=parseInt(key) + 1%></th>
+            <% } else { %>
+            <th style="width:3%" class="bg-secondary" scope="row"><%=parseInt(key) + 1%></th>
+            <% } %>
+            <td><strong><%=data[key].username%></strong></td>
+            <td><%=data[key].score%></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
     </div>
   </main>
   <!-- Footer -->

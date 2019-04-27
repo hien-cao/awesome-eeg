@@ -1,5 +1,4 @@
 // smooth_scrolling.js
-console.log('smooth scrolling');
 // Add smooth scrolling to all links
 $('a').on('click', function(event) {
 	// Make sure this.hash has a value before overriding default behavior
